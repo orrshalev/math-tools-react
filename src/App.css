@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.mathgreen {
+  background-color: #29bb89 !important;
+}
+.mathyellow {
+  background-color: #e6dd3b !important;
+} 
+.dropdown-menu.show{
+  background-color: #EAE583 !important;
+}
+
+span.mathStyle {
+  font-family: "PT Serif", serif;
+  font-style: italic;
+}
+
+span.mathNum {
+  font-family: "PT Serif", serif;
+}
+
+#offcanvasNavbarDropdown {
+  color: #212529;
+}
