@@ -1,21 +1,30 @@
 import { Container, Accordion } from "react-bootstrap";
 import React from "react";
 
-type Tab = {
+/**
+ * Contents of accordion tabs in tools
+ */
+export type Tab = {
   id: number;
   label: string;
   description: JSX.Element;
 };
 
-type ToolProps = {
+/**
+ * Contents of expected input on Tool Start component
+ */
+export type ToolProps = {
   title: string;
   description: string;
   tabs: Array<Tab>;
 };
 
+/**
+ * Returns HTML elements needed to display tool start
+ * @param props object containing title, description, and accordion tabs
+ * @returns HTML element of tool start
+ */
 function ToolStart(props: ToolProps): JSX.Element {
-  // const {id, label, description} = props;
-  // let tabs = [{id, label, description}]
   return (
     <>
       <Container fluid="sm">

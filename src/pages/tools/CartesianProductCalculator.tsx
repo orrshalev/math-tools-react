@@ -4,11 +4,8 @@ import MathNavbar from "../../components/MathNavbar";
 import ToolStart from "../../components/ToolStart";
 
 /**
- * Potential changes for future:
- * Do not update after comma but after value
- * Incorrect output when element is set with commas
+ * Information to fill accordion tabs
  */
-
 type Tab = {
   id: number;
   label: string;

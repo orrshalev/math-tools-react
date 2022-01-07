@@ -8,6 +8,10 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Component containing navigation bar for Math Toolbox
+ * @returns navigation bar HTML contents
+ */
 function MathNavbar(): JSX.Element {
   const navigate = useNavigate();
 
