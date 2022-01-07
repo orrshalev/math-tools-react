@@ -13,6 +13,7 @@ import AboutWebsite from "./pages/about/AboutWebsite";
 import AboutOrr from "./pages/about/AboutOrr";
 import CartesianProductCalculator from "./pages/tools/CartesianProductCalculator";
 import PowerSetCalculator from "./pages/tools/PowerSetCalculator";
+import Text from "./pages/grafstate/Text";
 
 function App(): JSX.Element {
   return (
@@ -34,6 +35,7 @@ function App(): JSX.Element {
           path="/tools/power-set-calculator"
           element={<PowerSetCalculator />}
         />
+        <Route path="/text" element={<Text />} />
       </Routes>
     </Router>
   );
