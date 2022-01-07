@@ -16,6 +16,10 @@ class Text extends React.Component<Props, State> {
   getNum(): number {
     return this.state.num;
   }
+
+  render(): JSX.Element {
+    return <>{this.state.num}</>;
+  }
 }
 
 export default Text;
