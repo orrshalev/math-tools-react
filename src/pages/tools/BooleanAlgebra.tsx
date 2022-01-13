@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Table } from "react-bootstrap";
 import MathNavbar from "../../components/MathNavbar";
 import ToolStart from "../../components/ToolStart";
 
@@ -40,6 +41,21 @@ function BooleanAlgebra(): JSX.Element {
     <>
       <MathNavbar />
       <ToolStart title={title} description={description} tabs={tabs} />
+      <div style={{ height: "30px" }} />
+      <Container fluid="md">
+        <Table responsive={true}>
+          <thead>
+            <th>{" "}</th>
+            <th>Col1</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>val</td>
+            </tr>
+          </tbody>
+        </Table>
+      </Container>
       <div style={{ height: "30px" }} />
     </>
   );
