@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import MathNavbar from "../components/MathNavbar";
 import cartesianPic from "../images/cartesian.png";
 import powerSetPic from "../images/powerset.png";
+import booleanPic from "../images/boolean.png";
 import comingSoonPic from "../images/200200.png";
+import BooleanAlgebra from "./tools/BooleanAlgebra";
 
 function Home(): JSX.Element {
   const navigate = useNavigate();
@@ -61,9 +63,23 @@ function Home(): JSX.Element {
           </Col>
           <Col>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={comingSoonPic} />
+              <Card.Img className="top" src={booleanPic} />
               <Card.Body>
-                <Card.Title>Coming soon!</Card.Title>
+                <Card.Title>
+                  Boolean
+                  <br />
+                  Algebra
+                </Card.Title>
+                <Card.Text>
+                  Find the truth table of a boolean expression.
+                </Card.Text>
+                <Button
+                  onClick={() => navigate("/tools/boolean-algebra")}
+                  variant=""
+                  className="mathyellow"
+                >
+                  Use tool
+                </Button>
               </Card.Body>
             </Card>
           </Col>
