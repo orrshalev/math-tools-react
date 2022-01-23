@@ -56,7 +56,8 @@
     "react/jsx-curly-newline": "off",
     "comma-dangle": "off",
     "react/jsx-no-useless-fragment": "off",
-    "no-unused-expressions": "warn"
+    "no-unused-expressions": "warn",
+    "linebreak-style": "off"
   },
   "settings": {
     "import/resolver": {

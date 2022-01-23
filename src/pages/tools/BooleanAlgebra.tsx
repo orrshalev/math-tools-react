@@ -45,7 +45,6 @@ type InputError = {
 interface Props {}
 
 interface State {
-  expression: string;
   bools: Dictionary<string, Array<number>> | InputError;
 }
 
@@ -213,6 +212,14 @@ class BooleanAlgebra extends React.Component<Props, State> {
     // Unpack
     const varset: Set<string> = new Set(expression.split(/\s+/gm));
     ops.forEach((op) => varset.delete(op));
+    // Check if too many vars
+    if (varset.size > 8) {
+      error = {
+        code: "INPUT_ERROR",
+        message: "INPUT ERROR: too many variables (max is 8)",
+      };
+      return error;
+    }
     const newVars: Array<string> = Array.from(varset);
     const allVarVals: Dictionary<string, Array<number>> = new Dictionary<
       string,
@@ -276,12 +283,12 @@ class BooleanAlgebra extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { expression: "", bools: new Dictionary() };
+    this.state = { bools: new Dictionary() };
   }
 
-  getExpression(): string {
-    return this.state.expression;
-  }
+  // getExpression(): string {
+  //   return this.state.expression;
+  // }
 
   // Change Q to expression
   setExpression(expression: string): void {
@@ -296,7 +303,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
           );
           // this.setState({ bools: newbools });
         }
-        return { expression, bools: newbools };
+        return { bools: newbools };
       }
     );
     // Change Q to expression
@@ -304,6 +311,41 @@ class BooleanAlgebra extends React.Component<Props, State> {
 
   getBools(): Dictionary<string, Array<number>> | InputError {
     return this.state.bools;
+  }
+
+  displayBoolTable(): JSX.Element {
+    const transpose = (m: any): any =>
+      m.reduce(
+        (prev: any, next: any) =>
+          next.map((item: any, i: any) => (prev[i] || []).concat(next[i])),
+        []
+      );
+    const bools = this.getBools();
+    if (bools instanceof Dictionary) {
+      const tran = transpose(bools.values());
+      return (
+        <Table responsive>
+          <thead>
+            <tr>
+              {bools.keys().map((key) => (
+                <th>{key}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tran.map((row: any) => (
+              <tr>
+                {row.map((val: any) => (
+                  <td>{val}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      );
+    }
+    // Otherwise print message
+    return <h5>{bools.message}</h5>;
   }
 
   render(): JSX.Element {
@@ -342,8 +384,9 @@ class BooleanAlgebra extends React.Component<Props, State> {
               <p>&#125;</p>
             </Col>
           </Row>
-          <p>{this.getExpression()}</p>
-          <p>{this.getBools().toString()}</p>
+          <div style={{ height: "30px" }} />
+          {this.displayBoolTable()}
+          <div style={{ height: "40px" }} />
         </Container>
       </>
     );
