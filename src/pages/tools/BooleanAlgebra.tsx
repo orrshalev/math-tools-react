@@ -25,7 +25,130 @@ const tabs = [
     label: "Learn",
     description: (
       <>
-        <p>Coming soon!</p>
+        <p>
+          Boolean algebra is a branch of algebra where the only values that a
+          number or variable can have are either 0 (meaning false) or 1 (meaning
+          true). These values have operations different from those of standard
+          algebra. For example, 1 + 1 = 1 under the rules of Boolean algebra.
+          The point of Boolean algebra is to give some mathematical structure to
+          the way that we organize and understand logical statements.
+        </p>
+        <p>
+          For boolean algebra, there are three basic logical operations from
+          which all other logical operations are derived from. These operations
+          are explained below:
+        </p>
+        <div style={{ height: "10px" }} />
+        <Table>
+          <thead>
+            <tr>
+              <th>Logical operation</th>
+              <th>Operator</th>
+              <th>Logical Notation</th>
+              <th>Boolean Notation</th>
+              <th>Programming Notation</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conjunction</td>
+              <td>AND</td>
+              <td>P &and; Q</td>
+              <td>P &sdot; Q</td>
+              <td>P &amp; Q</td>
+              <td>
+                P &and; Q = 1 <br />
+                if P = 1 and <br />
+                Q = 1 <br />P &and; Q = 0 otherwise
+              </td>
+            </tr>
+            <tr>
+              <td>Disjunction</td>
+              <td>OR</td>
+              <td>P &or; Q</td>
+              <td>P + Q</td>
+              <td>P | Q</td>
+              <td>
+                P &or; Q = 0 <br />
+                if P = 0 and <br />
+                Q = 0 <br />P &or; Q = 0 otherwise
+              </td>
+            </tr>
+            <tr>
+              <td>Negation</td>
+              <td>NOT</td>
+              <td>&not; P</td>
+              <td>- P</td>
+              <td>! P</td>
+              <td>
+                &not; P = 0 <br />
+                if P = 1 and <br />
+                &not; P = 1 <br />
+                if P = 0
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+        <div style={{ height: "10px" }} />
+        <p>
+          In addition to the basic logical operations, certain other operations
+          are commonly used:
+        </p>
+        <div style={{ height: "10px" }} />
+        <Table>
+          <thead>
+            <tr>
+              <th>Logical operation</th>
+              <th>Operator</th>
+              <th>Logical Notation</th>
+              <th>Boolean Notation</th>
+              <th>Programming Notation</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Exclusive <br /> Disjunction</td>
+              <td>XOR</td>
+              <td>P &oplus; Q</td>
+              <td>(P &sdot; - Q) + (- P &sdot; Q) </td>
+              <td>P ^ Q</td>
+              <td>
+                P &oplus; Q = 0<br />
+                if P = Q and <br />
+                P &oplus; Q = 1<br />
+                if P &ne; Q
+              </td>
+            </tr>
+            <tr>
+              <td>Implication</td>
+              <td>IF</td>
+              <td>P &rarr; Q</td>
+              <td>- P + Q</td>
+              <td>!P | Q</td>
+              <td>
+                P &rarr; Q = 0<br />
+                if P = 1 and Q = 0 and <br />
+                P &rarr; Q = 1<br />
+                otherwise
+              </td>
+            </tr>
+            <tr>
+              <td>Bicondition</td>
+              <td>IFF</td>
+              <td>P &harr; Q</td>
+              <td>(P &sdot; Q) + <br /> (-P &sdot; -Q)</td>
+              <td>(P &amp; Q) | (!P &amp; !Q)</td>
+              <td>
+                P &harr; Q = 0<br />
+                if P = Q and <br />
+                P &harr; Q = 1<br />
+                if P &ne; Q
+              </td>
+            </tr>
+          </tbody>
+        </Table>
       </>
     ),
   },
@@ -42,12 +165,12 @@ const tabs = [
         <h5>Precedence of operators</h5>
         <p>Operators have precedence when being calculated as following:</p>
         <ol>
-          <li> ( , ) &emsp;&lt;-- paranthesis/precedence</li>
+          <li> ( , ) &emsp;&lt;-- parentheses/precedence</li>
           <li> - &emsp;&lt;-- not/negation</li>
-          <li> &amp; &emsp;&lt;-- and/disjunction</li>
-          <li> | , ^ (or/conjunction, xor)</li>
-          <li> -&gt; (if/implication)</li>
-          <li> &lt;-&gt; (iff/bicondition)</li>
+          <li> &amp; &emsp;&lt;-- and/conjunction</li>
+          <li> | , ^ &emsp;&lt;-- or/disjunction, xor/exlucsive disjunction</li>
+          <li> -&gt; &emsp;&lt;-- if/implication</li>
+          <li> &lt;-&gt; &emsp;&lt;-- iff/bicondition</li>
         </ol>
         <h5>Examples of valid input</h5>
         <p>A &amp; B &emsp;&lt;-- A and B</p>
@@ -55,6 +178,14 @@ const tabs = [
         <p>A ^ B &emsp;&lt;-- A xor B</p>
         <p>A &lt;-&gt; B &emsp;&lt;-- A if and only if B</p>
         <p>A -&gt; B &emsp;&lt;-- A if B</p>
+        <p>( A | B ) &amp; C &emsp;&lt;-- A or B and C</p>
+        <p>
+          A | B &amp; C &emsp;&lt;-- B and C or A (B and C evaluated first
+          because of order of operations)
+        </p>
+        <h5>Examples of invalid input</h5>
+        <p>A&amp;B &emsp;&lt;-- put spaces between everything</p>
+        <p>(A | B) &emsp;&lt;-- spaces between parentheses too!</p>
       </>
     ),
   },
