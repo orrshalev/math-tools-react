@@ -7,16 +7,22 @@ import ToolStart from "../../components/ToolStart";
 const tabs = [
   {
     id: 1,
-    label: "Tab 1",
+    label: "Before you dive in",
     description: (
       <>
-        <p>Coming soon!</p>
+        <p>
+          The following articles will be of use to have a fuller understanding
+          of this tool:
+        </p>
+        <ul>
+          <li>First order logic</li>
+        </ul>
       </>
     ),
   },
   {
     id: 2,
-    label: "Tab 2",
+    label: "Learn",
     description: (
       <>
         <p>Coming soon!</p>
@@ -25,17 +31,37 @@ const tabs = [
   },
   {
     id: 3,
-    label: "Tab 3",
+    label: "How to use",
     description: (
       <>
-        <p>Coming soon!</p>
+        <h5>Summary</h5>
+        <p>
+          Enter a valid boolean expression with values delimited with spaces to
+          generate a truth table.
+        </p>
+        <h5>Precedence of operators</h5>
+        <p>Operators have precedence when being calculated as following:</p>
+        <ol>
+          <li> ( , ) &emsp;&lt;-- paranthesis/precedence</li>
+          <li> - &emsp;&lt;-- not/negation</li>
+          <li> &amp; &emsp;&lt;-- and/disjunction</li>
+          <li> | , ^ (or/conjunction, xor)</li>
+          <li> -&gt; (if/implication)</li>
+          <li> &lt;-&gt; (iff/bicondition)</li>
+        </ol>
+        <h5>Examples of valid input</h5>
+        <p>A &amp; B &emsp;&lt;-- A and B</p>
+        <p>A | - B &emsp;&lt;-- A or not B</p>
+        <p>A ^ B &emsp;&lt;-- A xor B</p>
+        <p>A &lt;-&gt; B &emsp;&lt;-- A if and only if B</p>
+        <p>A -&gt; B &emsp;&lt;-- A if B</p>
       </>
     ),
   },
 ];
 
 const title = "Boolean Algebra";
-const description = "Coming soon!";
+const description = "Builds a truth table given a boolean expression";
 
 type InputError = {
   code: "INPUT_ERROR";
@@ -356,8 +382,8 @@ class BooleanAlgebra extends React.Component<Props, State> {
         <div style={{ height: "30px" }} />
         <Container fluid="md">
           <Row className="gy-3" style={{ margin: "auto" }}>
-            <Col sm="auto" style={{ maxWidth: "50px", marginLeft: "10px" }}>
-              <p>Set:</p>
+            <Col sm="auto" style={{ maxWidth: "60px", marginLeft: "10px" }}>
+              <p>Boolean Expression:</p>
             </Col>
             <Col
               sm="auto"
@@ -367,22 +393,18 @@ class BooleanAlgebra extends React.Component<Props, State> {
                 marginLeft: "30px",
                 fontSize: "x-large",
               }}
-            >
-              <p>&#123;</p>
-            </Col>
-            <Col lg="auto" style={{ width: "40%", marginTop: "13px" }}>
+            />
+            <Col lg="auto" style={{ width: "60%", marginTop: "13px" }}>
               <Form.Control
                 type="text"
-                placeholder="Input Set"
+                placeholder="Input Expression"
                 onChange={(e) => this.setExpression(e.target.value)}
               />
             </Col>
             <Col
               lg="auto"
               style={{ maxWidth: "9%", marginTop: "10px", fontSize: "x-large" }}
-            >
-              <p>&#125;</p>
-            </Col>
+            />
           </Row>
           <div style={{ height: "30px" }} />
           {this.displayBoolTable()}
