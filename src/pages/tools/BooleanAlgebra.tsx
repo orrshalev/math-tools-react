@@ -247,7 +247,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
       for (let i = 0; i < postFix.length; i++) {
         if (bools.getValue(postFix[i])) {
           temp = bools.getValue(postFix[i]) ?? [];
-          temp2 = temp.at(k);
+          temp2 = temp[k];
           postFixBools.push(temp2);
         } else {
           postFixBools.push(postFix[i]);
@@ -483,7 +483,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
       return (
         <Table responsive>
           <thead>
-            <tr>
+            <tr key="vars">
               {bools.keys().map((key) => (
                 <th>{key}</th>
               ))}
@@ -491,7 +491,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
           </thead>
           <tbody>
             {tran.map((row: any) => (
-              <tr>
+              <tr key={row.toString()}>
                 {row.map((val: any) => (
                   <td>{val}</td>
                 ))}
