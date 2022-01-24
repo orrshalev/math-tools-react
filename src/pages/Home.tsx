@@ -27,7 +27,11 @@ function Home(): JSX.Element {
         <Row className="gy-5">
           <Col style={{ width: "300px" }}>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={cartesianPic} />
+              <Card.Img
+                className="top"
+                src={cartesianPic}
+                onClick={() => navigate("/tools/cartesian-product-calculator")}
+              />
               <Card.Body>
                 <Card.Title>Cartesian Product Calculator</Card.Title>
                 <Card.Text>
@@ -47,7 +51,7 @@ function Home(): JSX.Element {
           </Col>
           <Col>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={powerSetPic} />
+              <Card.Img className="top" src={powerSetPic} onClick={() => navigate("/tools/power-set-calculator")} />
               <Card.Body>
                 <Card.Title>Power Set Calculator</Card.Title>
                 <Card.Text>Calculate the power set of a set.</Card.Text>
@@ -63,7 +67,7 @@ function Home(): JSX.Element {
           </Col>
           <Col>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={booleanPic} />
+              <Card.Img className="top" src={booleanPic} onClick={() => navigate("/tools/boolean-algebra")} />
               <Card.Body>
                 <Card.Title>
                   Boolean

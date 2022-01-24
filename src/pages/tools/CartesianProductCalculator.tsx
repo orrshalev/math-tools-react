@@ -148,7 +148,7 @@ const tabs: Array<Tab> = [
         <h5>Examples of valid input</h5>
         <p>1,2</p>
         <p>1,2,3</p>
-        <p>1, 2, 3 &lt;-- with single space in between</p>
+        <p>1, 2, 3</p>
         <p>a,b</p>
         <p>a, b, c, d</p>
         <h5>Examples of invalid input</h5>
@@ -157,7 +157,6 @@ const tabs: Array<Tab> = [
           element
         </p>
         <p>
-          1, 2, 3 &lt;-- two spaces in between, will be interpreted as three
           elements: &quot;1&quot;, &quot; 2&quot;, and &quot; 3&quot;
         </p>
         <p>1, &#123;1,2&#125; &lt;-- parsed incorrectly because of comma</p>
