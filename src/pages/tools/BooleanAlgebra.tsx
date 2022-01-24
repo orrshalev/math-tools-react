@@ -39,7 +39,7 @@ const tabs = [
           are explained below:
         </p>
         <div style={{ height: "10px" }} />
-        <Table>
+        <Table responsive>
           <thead>
             <tr>
               <th>Logical operation</th>
@@ -96,7 +96,7 @@ const tabs = [
           are commonly used:
         </p>
         <div style={{ height: "10px" }} />
-        <Table>
+        <Table responsive>
           <thead>
             <tr>
               <th>Logical operation</th>
