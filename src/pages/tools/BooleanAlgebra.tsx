@@ -147,6 +147,32 @@ const tabs = [
                 if P &ne; Q
               </td>
             </tr>
+            <tr>
+              <td>Not Conjunction</td>
+              <td>NAND</td>
+              <td>P &#8892; Q</td>
+              <td>-(P &sdot; Q)</td>
+              <td>!(P &amp; Q)</td>
+              <td>
+                P &#8892; Q = 0<br />
+                if P = 1 and Q = 1 <br />
+                P &#8892; Q = 1<br />
+                otherwise
+              </td>
+            </tr>
+            <tr>
+              <td>Not Disjunction</td>
+              <td>NOR</td>
+              <td>P &#8893; Q</td>
+              <td>-(P + Q)</td>
+              <td>!(P | Q)</td>
+              <td>
+                P &#8893; Q = 1<br />
+                if P = 0 and Q = 1<br />
+                and P &#8893; Q = 0<br />
+                otherwise
+              </td>
+            </tr>
           </tbody>
         </Table>
       </>
@@ -169,7 +195,7 @@ const tabs = [
           <li> - &emsp;&lt;-- not/negation</li>
           <li> &amp; &emsp;&lt;-- and/conjunction</li>
           <li> | , ^ &emsp;&lt;-- or/disjunction, xor/exlucsive disjunction</li>
-          <li> -&gt; &emsp;&lt;-- if/implication</li>
+          <li> -&gt;, /\, \/ &emsp;&lt;-- if/implication, nand, nor</li>
           <li> &lt;-&gt; &emsp;&lt;-- iff/bicondition</li>
         </ol>
         <h5>Examples of valid input</h5>
@@ -226,6 +252,12 @@ class BooleanAlgebra extends React.Component<Props, State> {
       if (op === "<->") {
         return (op1 & op2) | ((!op1 ? 1 : 0) & (!op2 ? 1 : 0));
       }
+      if (op === "/\\") {
+        return !(op1 & op2) ? 1 : 0;
+      }
+      if (op === "\\/") {
+        return !(op1 | op2) ? 1 : 0;
+      }
       // in case of error
       return 2;
     };
@@ -280,7 +312,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
     // guard for errors
     let error: InputError;
     // verify validity
-    const ops: Array<string> = ["(", "-", "&", "|", "->", "<->", ")", "^"]; // used later too
+    const ops: Array<string> = ["(", "-", "&", "|", "->", "<->", "/\\", "\\/", ")", "^"]; // used later too
     const splitexpr: Array<string> = expression.split(/\s+/gm);
     let match: boolean;
     // check if all paranthesis are matching
@@ -397,7 +429,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
 
   static infixToPostfix(expr: string): Array<string> {
     // order of ops in array matters :)
-    const ops: Array<string> = ["(", "<->", "->", "|", "&", "-", "^"];
+    const ops: Array<string> = ["(", "<->", "->", "|", "&", "-", "^", "\\/", "/\\"];
     const precedence: Dictionary<string | undefined, number> = new Dictionary<
       string | undefined,
       number
@@ -405,6 +437,8 @@ class BooleanAlgebra extends React.Component<Props, State> {
     let p = 1;
     ops.forEach((op) => precedence.setValue(op, p++));
     precedence.setValue("^", 3);
+    precedence.setValue("\\/", 2);
+    precedence.setValue("/\\", 2);
     const opStack: Stack<string> = new Stack<string>();
     const exprList = expr.split(/\s+/gm);
     const postFixList: Array<string> = [];
