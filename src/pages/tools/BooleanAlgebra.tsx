@@ -518,7 +518,7 @@ class BooleanAlgebra extends React.Component<Props, State> {
         <Table responsive>
           <thead>
             <tr key="vars">
-              {bools.keys().map((key) => (
+              {bools.keys().map((key:string) => (
                 <th>{key}</th>
               ))}
             </tr>
