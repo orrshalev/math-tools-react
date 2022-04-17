@@ -13,6 +13,7 @@ import AboutWebsite from "./pages/about/AboutWebsite";
 import AboutOrr from "./pages/about/AboutOrr";
 import CartesianProductCalculator from "./pages/tools/CartesianProductCalculator";
 import PowerSetCalculator from "./pages/tools/PowerSetCalculator";
+import NumberBaseConverter from "./pages/tools/NumberBaseConverter";
 
 function App(): JSX.Element {
   return (
@@ -26,6 +27,7 @@ function App(): JSX.Element {
         <Route path="/tools/boolean-algebra" element={<BooleanAlgebra />} />
         <Route path="/tools/bigo-optimization" element={<BigOOptimization />} />
         <Route path="/tools/recursion-sandbox" element={<RecursionSandbox />} />
+        <Route path="/tools/number-base-converter" element={<NumberBaseConverter />} />
         <Route
           path="/tools/cartesian-product-calculator"
           element={<CartesianProductCalculator />}

@@ -6,7 +6,6 @@ import cartesianPic from "../images/cartesian.png";
 import powerSetPic from "../images/powerset.png";
 import booleanPic from "../images/boolean.png";
 import comingSoonPic from "../images/200200.png";
-import BooleanAlgebra from "./tools/BooleanAlgebra";
 
 function Home(): JSX.Element {
   const navigate = useNavigate();
@@ -89,9 +88,23 @@ function Home(): JSX.Element {
           </Col>
           <Col>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={comingSoonPic} />
+              <Card.Img className="top" src={comingSoonPic} onClick={() => navigate("/tools/number-base-converter")} />
               <Card.Body>
-                <Card.Title>Coming soon!</Card.Title>
+                <Card.Title>
+                  Number Base
+                  <br />
+                  Converter
+                </Card.Title>
+                <Card.Text>
+                  Convert number bases 2-35
+                </Card.Text>
+                <Button
+                  onClick={() => navigate("/tools/number-base-converter")}
+                  variant=""
+                  className="mathyellow"
+                >
+                  Use tool
+                </Button>
               </Card.Body>
             </Card>
           </Col>

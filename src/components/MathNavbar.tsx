@@ -52,6 +52,11 @@ function MathNavbar(): JSX.Element {
                   menuVariant="light"
                 >
                   <NavDropdown.Item
+                    onClick={() => navigate("/tools/number-base-converter")}
+                  >
+                    Number Base Converter
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
                     onClick={() => navigate("/tools/recursion-sandbox")}
                   >
                     Recursion Sandbox
