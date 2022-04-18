@@ -302,7 +302,7 @@ for (let i = 0; i < numbers.length; i++) {
 class NumberBaseConverter extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-    this.state = { input: "", output: "", startBase: 10, endBase: 2 };
+    this.state = { input: "", output: "", startBase: 2, endBase: 2 };
   }
 
   convert(input : string) : void {
