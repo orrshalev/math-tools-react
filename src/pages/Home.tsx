@@ -5,6 +5,7 @@ import MathNavbar from "../components/MathNavbar";
 import cartesianPic from "../images/cartesian.png";
 import powerSetPic from "../images/powerset.png";
 import booleanPic from "../images/boolean.png";
+import basePic from "../images/base.png";
 import comingSoonPic from "../images/200200.png";
 
 function Home(): JSX.Element {
@@ -88,7 +89,7 @@ function Home(): JSX.Element {
           </Col>
           <Col>
             <Card style={{ width: "13rem", height: "396px", margin: "auto" }}>
-              <Card.Img className="top" src={comingSoonPic} onClick={() => navigate("/tools/number-base-converter")} />
+              <Card.Img className="top" src={basePic} onClick={() => navigate("/tools/number-base-converter")} />
               <Card.Body>
                 <Card.Title>
                   Number Base
