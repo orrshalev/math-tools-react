@@ -6,7 +6,7 @@
 
         <loc>https://mathtoolbox.co/</loc>
 
-        <lastmod>2021-12-31</lastmod>
+        <lastmod>2022-04-18</lastmod>
 
         <changefreq>weekly</changefreq>
 
@@ -23,6 +23,18 @@
         <changefreq>weekly</changefreq>
 
         <priority>1.0</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://mathtoolbox.co/tools/number-base-converter</loc>
+
+        <lastmod>2022-04-18</lastmod>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
 
     </url>
 
